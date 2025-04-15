@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Táblázat</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Web-programozás Előadás Házi feladat</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Kezdőlap</a></li>
+            <li><a href="tablazat.html" class="active">Táblázat</a></li>
+            <li><a href="html5.html">HTML5</a></li>
+            <li><a href="chart.html">ChartJS</a></li>
+            <li><a href="ajax.html">AJAX</a></li>
+            <li><a href="oojs.html">OOJS</a></li>
+        </ul>
+    </nav>
+
+    <aside>
+        <p>CRUD Táblázat</p>
+    </aside>
+
+    <div id="content">
+
+        <form id="form">
+            <input type="text" id="name" placeholder="Név" required minlength="2" maxlength="30">
+            <input type="text" id="email" placeholder="Email" required maxlength="30">
+            <input type="number" id="age" placeholder="Kor" required min="1" max="120">
+            <input type="text" id="country" placeholder="Ország" required maxlength="30">
+            <button type="submit">Hozzáadás / Módosítás</button>
+        </form>
+
+        <input type="text" id="searchInput" placeholder="Keresés..." style="margin-top:1em;">
+
+        <table id="dataTable" border="1" style="width: 100%; margin-top: 1em;">
+            <thead>
+                <tr>
+                    <th data-col="name">Név</th>
+                    <th data-col="email">Email</th>
+                    <th data-col="age">Kor</th>
+                    <th data-col="country">Ország</th>
+                    <th>Művelet</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <footer>
+        <p>Készítette: Bubics Bence Dominik, Máté Tamás Demeter</p>
+    </footer>
+
+    <script src="tablazat.js"></script>
+</body>
+
+</html>

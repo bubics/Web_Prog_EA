@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <title>HTML5 API-k</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Web-programozás Előadás Házi feladat</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Kezdőlap</a></li>
+            <li><a href="tablazat.html">Táblázat</a></li>
+            <li><a href="html5.html" class="active">HTML5</a></li>
+            <li><a href="chart.html">ChartJS</a></li>
+            <li><a href="ajax.html">AJAX</a></li>
+            <li><a href="oojs.html">OOJS</a></li>
+        </ul>
+    </nav>
+
+    <aside>
+        <p>HTML5 API példák</p>
+    </aside>
+
+    <div id="content">
+        <h2>HTML5 API-k példái</h2>
+
+        <section>
+            <h3>Web Storage (localStorage)</h3>
+            <input type="text" id="storageInput" placeholder="Írj valamit...">
+            <button onclick="saveToStorage()">Mentés</button>
+            <button onclick="loadFromStorage()">Betöltés</button>
+            <p id="storageResult"></p>
+        </section>
+
+        <section>
+            <h3>Web Worker</h3>
+            <button onclick="startWorker()">Számolás indítása</button>
+            <p id="workerResult"></p>
+        </section>
+
+        <section>
+            <h3>Server-Sent Events (Szimulált)</h3>
+            <button onclick="simulateSSE()">Esemény indítása</button>
+            <p id="sseResult"></p>
+        </section>
+
+        <section>
+            <h3>Geolocation API</h3>
+            <button onclick="getLocation()">Helyzet lekérése</button>
+            <p id="geoResult"></p>
+        </section>
+
+        <section>
+            <h3>Drag and Drop</h3>
+            <div id="drag" draggable="true"
+                style="width:100px; height:100px; background:lightblue; text-align:center; line-height:100px;">Húzz ide
+            </div>
+            <div id="drop"
+                style="width:200px; height:100px; background:lightgray; margin-top:10px; text-align:center; line-height:100px;">
+                Dobd ide</div>
+        </section>
+    </div>
+
+    <footer>
+        <p>Készítette: Bubics Bence Dominik, Máté Tamás Demeter</p>
+    </footer>
+
+    <script>
+        function saveToStorage() {
+            const val = document.getElementById('storageInput').value;
+            localStorage.setItem('myData', val);
+        }
+
+        function loadFromStorage() {
+            const val = localStorage.getItem('myData');
+            document.getElementById('storageResult').textContent = val ? val : 'Nincs adat tárolva.';
+        }
+        let worker;
+        function startWorker() {
+            if (window.Worker) {
+                if (!worker) {
+                    worker = new Worker("worker.js");
+                }
+                worker.onmessage = e => {
+                    document.getElementById("workerResult").textContent = "Számolás eredménye: " + e.data;
+                };
+                worker.postMessage("start");
+            }
+        }
+
+        function simulateSSE() {
+            const output = document.getElementById("sseResult");
+            output.textContent = "Kapcsolódás...";
+            setTimeout(() => {
+                output.textContent = "Üzenet a szervertől: Helló Web!";
+            }, 2000);
+        }
+
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(pos => {
+                    const coords = pos.coords;
+                    document.getElementById("geoResult").textContent = `Szélesség: ${coords.latitude}, Hosszúság: ${coords.longitude}`;
+                }, () => {
+                    document.getElementById("geoResult").textContent = "Hozzáférés megtagadva.";
+                });
+            } else {
+                document.getElementById("geoResult").textContent = "A böngésző nem támogatja.";
+            }
+        }
+
+        const drag = document.getElementById("drag");
+        const drop = document.getElementById("drop");
+
+        drag.addEventListener("dragstart", e => {
+            e.dataTransfer.setData("text", "húzva");
+        });
+
+        drop.addEventListener("dragover", e => e.preventDefault());
+        drop.addEventListener("drop", e => {
+            e.preventDefault();
+            drop.textContent = "Sikeres dobás!";
+            drop.style.background = "lightgreen";
+        });
+    </script>
+</body>
+
+</html>
