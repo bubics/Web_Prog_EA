@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ChartJS példa</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="chart.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Web-programozás Előadás Házi feladat</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Kezdőlap</a></li>
+            <li><a href="tablazat.html">Táblázat</a></li>
+            <li><a href="html5.html">HTML5</a></li>
+            <li><a href="chart.html" class="active">ChartJS</a></li>
+            <li><a href="ajax.html">AJAX</a></li>
+            <li><a href="oojs.html">OOJS</a></li>
+        </ul>
+    </nav>
+
+    <aside>
+        <p>Chart.js diagram</p>
+    </aside>
+
+    <div id="content">
+        <h2>5x5-ös táblázat – Vonaldiagram</h2>
+
+        <table id="numberTable" border="1" style="width: 100%; text-align: center;">
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>9</td>
+                    <td>8</td>
+                    <td>7</td>
+                    <td>6</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>10</td>
+                    <td>15</td>
+                    <td>20</td>
+                    <td>25</td>
+                </tr>
+                <tr>
+                    <td>30</td>
+                    <td>28</td>
+                    <td>26</td>
+                    <td>24</td>
+                    <td>22</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>4</td>
+                    <td>6</td>
+                    <td>8</td>
+                    <td>10</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>Kattints egy sorra a diagramhoz!</p>
+
+        <canvas id="myChart" width="400" height="200"></canvas>
+    </div>
+
+    <footer>
+        <p>Készítette: Bubics Bence Dominik, Máté Tamás Demeter</p>
+    </footer>
+</body>
+
+</html>

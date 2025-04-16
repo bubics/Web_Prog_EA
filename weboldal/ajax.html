@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <title>AJAX API példa</title>
+    <script src="ajax.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Web-programozás Előadás Házi feladat</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Kezdőlap</a></li>
+            <li><a href="tablazat.html">Táblázat</a></li>
+            <li><a href="html5.html">HTML5</a></li>
+            <li><a href="chart.html">ChartJS</a></li>
+            <li><a href="ajax.html" class="active">AJAX</a></li>
+            <li><a href="oojs.html">OOJS</a></li>
+        </ul>
+    </nav>
+
+    <aside>
+        <p>AJAX + API működés</p>
+    </aside>
+
+    <div id="content">
+        <h2>Adatok kezelése AJAX-szal</h2>
+
+        <button onclick="loadData()">Adatok betöltése</button>
+        <div id="dataList"></div>
+
+        <h3>Statisztika (height mező)</h3>
+        <p id="sum"></p>
+        <p id="avg"></p>
+        <p id="max"></p>
+
+        <h3>Új adat létrehozása</h3>
+        <input type="text" id="nameCreate" placeholder="Név">
+        <input type="number" id="heightCreate" placeholder="Magasság">
+        <button onclick="createData()">Létrehozás</button>
+
+        <h3>Adat módosítása</h3>
+        <input type="number" id="updateId" placeholder="ID">
+        <button onclick="getDataForId()">Adatok betöltése</button><br>
+        <input type="text" id="nameUpdate" placeholder="Név">
+        <input type="number" id="heightUpdate" placeholder="Magasság">
+        <button onclick="updateData()">Módosítás</button>
+
+        <h3>Adat törlése</h3>
+        <input type="number" id="deleteId" placeholder="ID">
+        <button onclick="deleteData()">Törlés</button>
+
+        <div id="message"></div>
+    </div>
+
+    <footer>
+        <p>Készítette: Bubics Bence Dominik, Máté Tamás Demeter</p>
+    </footer>
+</body>
+
+</html>
